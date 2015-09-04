@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+    <appender name="ROOT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{HH:mm:ss} %5p %c{1}:  %m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="burp">
+        <level value="${log4j.level}"/>
+        <appender-ref ref="${log4j.appender}"/>
+    </logger>
+
+    <logger name="org.apache.http.wire">
+        <level value="DEBUG"/>
+        <appender-ref ref="${log4j.appender}"/>
+    </logger>
+
+    <root>
+        <priority value="warn"/>
+        <appender-ref ref="ROOT"/>
+    </root>
+
+</log4j:configuration>
